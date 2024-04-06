@@ -3,19 +3,22 @@
 
 <h1>Mentorandos</h1>
 
-<%= form_with model: @mentees do |form| %>
+<%= form_with model: @mentee do |form| %>
   <div>
     <%= form.label :Name %><br>
     ## TODO Adicionar nome do mentorado
-    <%= form.label :@mentees %>
+    Nome
   </div>
 
   <div>
     <%= form.label :Bio %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :bio %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
+
+  <%= @mentee.errors.full_messages %>
+
 <% end %>
