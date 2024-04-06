@@ -1,0 +1,21 @@
+<h1>Mentees#new</h1>
+<p>Find me in app/views/mentees/new.html.erb</p>
+
+<h1>Mentorandos</h1>
+
+<%= form_with model: @mentees do |form| %>
+  <div>
+    <%= form.label :Name %><br>
+    ## TODO Adicionar nome do mentorado
+    <%= form.label :@mentees %>
+  </div>
+
+  <div>
+    <%= form.label :Bio %><br>
+    <%= form.text_area :body %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
