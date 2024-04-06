@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :mentor, class_name: 'Mentor'
+
   validates :email, :name, presence: true
   validates :email, uniqueness: true
 end
