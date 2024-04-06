@@ -1,0 +1,25 @@
+<%= form_with(model: mentor) do |form| %>
+  <% if mentor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(mentor.errors.count, "error") %> prohibited this mentor from being saved:</h2>
+
+      <ul>
+        <% mentor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <p><%= form.label :bio, "Biografia do Mentor:" %></p>
+    <p><%= form.text_field :bio %></p>
+
+    <p><%= form.label :url, "URL do Mentor:" %></p>
+    <p><%= form.text_field :url %></p>
+  <div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
