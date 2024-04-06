@@ -1,5 +1,5 @@
 class MentorsController < ApplicationController
-  before_action :set_mentors, only: %i[ show edit update destroy ]
+  before_action :set_mentors, only: %i[ edit update ]
 
   # GET /mentors or /mentors.json
   def index
