@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_06_155423) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_06_185213) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_155423) do
     t.index ["user_id"], name: "index_mentees_on_user_id"
   end
 
+  create_table "mentor_skills", force: :cascade do |t|
+    t.bigint "mentor_id"
+    t.bigint "skill_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mentor_id"], name: "index_mentor_skills_on_mentor_id"
+    t.index ["skill_id"], name: "index_mentor_skills_on_skill_id"
+  end
+
   create_table "mentors", force: :cascade do |t|
     t.string "url"
     t.text "bio"
@@ -29,6 +38,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_155423) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_mentors_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
