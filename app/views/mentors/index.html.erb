@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Mentores disponíveis</h1>
+
+<div id="mentor-settings">
+    <p>
+        <% if current_user.mentor.present? %>
+            <%= link_to "Editar sua mentoria", edit_mentor_path(current_user.mentor) %>
+        <% else%>
+            <%= link_to "Iniciar como Mentor", new_mentor_path %>
+        <% end %>
+    </p>
+</div>
+
+<div id="mentors">
+    <table>
+    <% @mentors.each do |mentor| %>
+        <%= render mentor %>
+    <% end %>
+    </table>
+</div>
+
+<p>
+    <td><%= link_to "Voltar a Home", '/' %></td>
+</p>
